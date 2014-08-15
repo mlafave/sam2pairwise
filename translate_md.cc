@@ -11,7 +11,7 @@
 using std::istream;
 using std::string;
 
-#include "translate_md.h"
+#include "translate_md.hh"
 
 
 istream& translate_md ( istream& mdstream, const string& read, string& reference, const int& subpos, int& mdpos, const int& md_number, char& md_letter, const int& mdintnext_flag, const int& insert_flag, int& nonmatch_flag, const int& softclip_flag )

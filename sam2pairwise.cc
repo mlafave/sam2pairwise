@@ -19,11 +19,11 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-#include "isolate_md.h"
-#include "shift_cigar.h"
-#include "shift_md.h"
-#include "translate_cigar.h"
-#include "translate_md.h"
+#include "isolate_md.hh"
+#include "shift_cigar.hh"
+#include "shift_md.hh"
+#include "translate_cigar.hh"
+#include "translate_md.hh"
 
 
 

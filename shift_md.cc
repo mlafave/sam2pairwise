@@ -9,6 +9,8 @@
 
 using std::istream;
 
+#include "shift_md.hh"
+
 istream& shift_md ( istream& in, int& flag, int& number, char& letter)
 {
 

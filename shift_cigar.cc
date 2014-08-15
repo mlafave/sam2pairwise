@@ -11,7 +11,7 @@ using namespace std;
 
 using std::istream;
 
-#include "shift_cigar.h"
+#include "shift_cigar.hh"
 
 istream& shift_cigar( istream& in, int& number, char& letter )
 {

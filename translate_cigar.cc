@@ -9,7 +9,7 @@
 
 using std::string;
 
-#include "translate_cigar.h"
+#include "translate_cigar.hh"
 
 
 int translate_cigar( string& seq, const string& read, const char& letter, const int& seqposition, int& cigarposition, int& nonmatch_flag, int& insert_flag, int& softclip_flag )

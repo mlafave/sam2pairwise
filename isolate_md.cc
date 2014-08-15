@@ -11,7 +11,7 @@
 using std::vector;
 using std::string;
 
-#include "isolate_md.h"
+#include "isolate_md.hh"
 
 string isolate_md( const vector<string>& samline )
 {
