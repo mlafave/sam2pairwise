@@ -33,6 +33,7 @@ int main()
 	string input_string;
 	int pastheader = 0;
 
+
 	while ( getline( cin, input_string ) )
 	{
 
@@ -126,11 +127,12 @@ int main()
 
 
 
-			// If there's still something in the mdstream, mdposition is 0, and
-			// CIGAR is not S (meaning you're not in the softclip region), shift
-			// the elements of the MD until it's something other than 0.
+			// If there's still something in the mdstream, mdposition is 0, CIGAR
+			// is not S (meaning you're not in the softclip region), and CIGAR is
+			//not I (meaning you're not in an insertion), shift the elements of
+			// the MD until it's something other than 0.
 
-			if ( (mdstream.rdbuf()->in_avail() != 0) && mdpos == 0 && cigar_letter != 'S')
+			if ( (mdstream.rdbuf()->in_avail() != 0) && mdpos == 0 && cigar_letter != 'S' && cigar_letter != 'I' )
 			{
 
 				try{

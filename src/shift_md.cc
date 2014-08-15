@@ -32,7 +32,7 @@ istream& shift_md ( istream& in, int& flag, int& number, char& letter)
 			// But if a 0 is the integer you got, ignore it and pull the
 			// next character instead.
 
-			if ( number == 0 )
+			if ( number == 0 && in.rdbuf()->in_avail() )
 			{
 
 				if ( !(in >> letter) )
