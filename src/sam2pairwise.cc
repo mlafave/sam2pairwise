@@ -69,15 +69,6 @@ int main()
 
 		string md = isolate_md(line);
 
-		if(md.empty())
-		{
-			cout << line[0] << "\t" << line[1] << "\t"<< line[2] << "\t"<< line[3]
-			     << "\t"<< line[4] << "\t"<< line[5] << "\t"<< line[6] << "\t"
-			     << line[7] << "\t"<< line[8] << endl << "MD tag not found"
-			     << endl << endl << endl;
-			continue;
-		}
-
 
 
 		// Initialize variables for the three substring positions, the content of the
@@ -188,17 +179,48 @@ int main()
 
 			// Now deal with the reference.
 
-			try {
+			if( !md.empty() )
+			{
 
-				translate_md( mdstream,  read, reference, subpos, mdpos, md_number, md_letter, mdintnext_flag, insert_flag, nonmatch_flag, softclip_flag );
+				try {
 
-			} catch (int e){
+					translate_md( mdstream,  read, reference, subpos, mdpos, md_number, md_letter, mdintnext_flag, insert_flag, nonmatch_flag, softclip_flag );
 
-				cout << "Character not detected after ^ in MD tag. Exiting" << endl;
-				return 1;
+				} catch (int e){
+
+					cout << "Character not detected after ^ in MD tag. Exiting" << endl;
+					return 1;
+
+				}
 
 			}
+			else
+			{
 
+				if ( insert_flag )
+				{
+					reference += '-';
+				}
+				else if ( cigar_letter != 'D' )
+				{
+					reference += read.substr(subpos, 1);
+				}
+				else
+				{
+					// If there's no MD tag but the CIGAR has a D, there's no way
+					// to print this correctly.
+
+					cout << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
+					<< line[3] << "\t" << line[4] << "\t" << line[5] << "\t"
+					<< line[6] << "\t" << line[7] << "\t" << line[8] << endl
+					<< "D encountered in CIGAR without MD tag" << endl
+					<< endl << endl;
+
+					break;
+
+				}
+
+			}
 
 
 			// If the mismatch flag is set, that line gets a space. If not, a |.
