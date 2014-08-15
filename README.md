@@ -10,16 +10,29 @@ Requirements
 A C++ compiler, such as G++.
 
 
+Installation
+------------
+
+To compile sam2pairwise, enter the src/ directory and type:
+
+    make
+
+sam2pairwise can then be moved to /usr/bin/ or wherever is convenient. 
+To remove the compiled files, enter the src/ directory and type:
+
+    make clobber
+
+
 Usage
 -------
 
 Input can be read out of a SAM file:
 
-    sam2pairwise.o < file.sam > file.out
+    sam2pairwise < file.sam > file.out
 
 Or from a pipe:
 
-    samtools view file.sam | sam2pairwise.o > file.out
+    samtools view file.sam | sam2pairwise > file.out
 
 
 Output
