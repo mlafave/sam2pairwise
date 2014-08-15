@@ -30,15 +30,29 @@ using std::vector;
 int main()
 {
 
-	string test_string;
+	string input_string;
+	int pastheader = 0;
 
-	while ( getline( cin, test_string ) )
+	while ( getline( cin, input_string ) )
 	{
+
+		// Verify that you aren't in the header
+		if( !pastheader )
+		{
+			if(input_string.substr(0,1) == "@")
+			{
+				continue;
+			}
+			else
+			{
+				pastheader = 1;
+			}
+		}
 
 		// Split the line into a vector
 
 		string buf; // a buffer
-		stringstream ss(test_string);
+		stringstream ss(input_string);
 
 		vector<string> line;
 
