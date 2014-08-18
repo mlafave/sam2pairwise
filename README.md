@@ -32,7 +32,7 @@ Input can be read out of a SAM file:
 
 Or from a pipe:
 
-    samtools view file.sam | sam2pairwise > file.out
+    samtools view file.bam | sam2pairwise > file.out
 
 
 Output
