@@ -71,7 +71,7 @@ int translate_cigar( string& seq, const string& read, const char& letter, const 
 	}
 	else
 	{
-		// If the letter was N, H, P, =, or X, print that it currently
+		// If the letter was N or P, print that it currently
 		// isn't supported.
 
 		throw 1;

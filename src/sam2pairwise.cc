@@ -106,12 +106,31 @@ int main()
 
 			if( cigarpos == 0 )
 			{
+				start:
 
 				try {
 					shift_cigar( cigarstream, cigar_number, cigar_letter );
 				} catch (int e) {
 					cout << "shift_cigar failed. Exiting." << endl;
 					return 1;
+				}
+
+				if (cigar_letter == 'H')
+				{
+
+					if (mdstream.rdbuf()->in_avail() != 0)
+					{
+						// If you find hard clipping at the beginning of the read,
+						// just skip it. Back up and take the next element.
+						goto start;
+					}
+					else
+					{
+						//If there's nothing more in the stream, it's hard clipping
+						// at the end, and you can just finish up.
+						break;
+					}
+
 				}
 
 			}
