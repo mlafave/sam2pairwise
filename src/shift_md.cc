@@ -16,59 +16,45 @@ istream& shift_md ( istream& in, int& flag, int& number, char& letter)
 
 	if(in){
 
-		if( flag )
+		if ( !(in >> number) )
 		{
+			// If you're unable to take an integer, it must be a character.
+			// Clear the error and take the character, and set the flag indicating
+			// that the next element has the possibility of being an integer.
 
-			// Take the next element, which should be an interger.
-			// Also set mdintnext flag to 0.
-
-			if ( !(in >> number) )
+			in.clear();
+			if (!(in >> letter))
 			{
-				throw 1;
+				throw 'e';
 			}
+			flag = 1;
+
+		}
+		else
+		{
+			//  If you're able to take an integer, you know the next element
+			// cannot be an integer, so lower the flag.
 
 			flag = 0;
-
-			// But if a 0 is the integer you got, ignore it and pull the
-			// next character instead.
 
 			if ( number == 0 && in.rdbuf()->in_avail() )
 			{
 
+				// If the integer you took was 0, and if there are elements
+				// remaining, then take the next element (which you know must be a
+				// character).
 				if ( !(in >> letter) )
 				{
 					throw 'e';
 				}
 				else
 				{
-					// Assume the thing AFTER this character will be an
-					// integer. That's not the case if the character is ^,
-					// but that's taken into account below.
-
 					flag = 1;
-
 				}
 
 			}
 
 		}
-		else
-		{
-
-			// If mdintnext_flag hadn't been set, the next thing should be
-			// a character.
-
-			if ( !(in >> letter) )
-			{
-				throw 'e';
-			}
-
-			// After a character should be an integer (unless the character
-			// was ^, but that's dealt with below)
-			flag = 1;
-
-		}
-
 
 	}
 
