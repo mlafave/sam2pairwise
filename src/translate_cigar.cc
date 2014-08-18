@@ -15,7 +15,7 @@ using std::string;
 int translate_cigar( string& seq, const string& read, const char& letter, const int& seqposition, int& cigarposition, int& nonmatch_flag, int& insert_flag, int& softclip_flag )
 {
 
-	if( letter == 'M')
+	if( letter == 'M' || letter == 'X' || letter == '=')
 	{
 		// If the cigar letter is M, take the next letter of the read and add
 		// it to the output "modseq" read. Increment cigar position. (Or I COULD
