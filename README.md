@@ -44,6 +44,8 @@ sam2pairwise currently supports the following CIGAR elements for reconstructing 
 * I: Insertion to the reference, indicated by '-' on the reference sequence.
 * D: Deletion from the reference, indicated '-' on the read sequence.
 * S: Soft clipping. These characters are represented normally on the read sequence, and as 'N's on the reference sequence.
+* =: Sequence match. Treated the same as 'M'.
+* X: Sequence mismatch. Treated the same as 'M'.
 
 Each line of input has a corresponding four lines of output. The first line serves as the header, and reproduces the first nine mandatory fields from the SAM entry. The second line is the read itself, the third indicates sequence matches, and the fourth represents the reference sequence.
 
