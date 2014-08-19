@@ -16,6 +16,8 @@ using std::string;
 using std::getline;
 using std::cin;
 using std::cout;
+using std::cerr;
+using std::clog;
 using std::endl;
 using std::vector;
 
@@ -111,7 +113,10 @@ int main()
 				try {
 					shift_cigar( cigarstream, cigar_number, cigar_letter );
 				} catch (int e) {
-					cout << "shift_cigar failed. Exiting." << endl;
+					cerr << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
+					<< line[3] << "\t" << line[4] << "\t" << line[5] << "\t"
+					<< line[6] << "\t" << line[7] << "\t" << line[8] << endl
+					<< "shift_cigar failed. Exiting." << endl;
 					return 1;
 				}
 
@@ -149,14 +154,12 @@ int main()
 
 					shift_md( mdstream, mdintnext_flag, md_number, md_letter);
 
-				} catch (int e){
-
-					cout << "shift_md failed; didn't grab integer. Exiting." << endl;
-					return 1;
-
 				} catch (char e){
 
-					cout << "shift_md failed; didn't grab character. Exiting." << endl;
+					cerr << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
+					<< line[3] << "\t" << line[4] << "\t" << line[5] << "\t"
+					<< line[6] << "\t" << line[7] << "\t" << line[8] << endl
+					<< "shift_md failed; didn't grab character. Exiting." << endl;
 					return 1;
 
 				}
@@ -182,7 +185,7 @@ int main()
 
 				} catch (int e){
 
-					cout << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
+					clog << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
 					<< line[3] << "\t" << line[4] << "\t" << line[5] << "\t"
 					<< line[6] << "\t" << line[7] << "\t" << line[8] << endl
 					<< "Currently unsupported CIGAR character encountered" << endl
@@ -207,7 +210,10 @@ int main()
 
 				} catch (int e){
 
-					cout << "Character not detected after ^ in MD tag. Exiting" << endl;
+					cerr << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
+					<< line[3] << "\t" << line[4] << "\t" << line[5] << "\t"
+					<< line[6] << "\t" << line[7] << "\t" << line[8] << endl
+					<< "Character not detected after ^ in MD tag. Exiting" << endl;
 					return 1;
 
 				}
@@ -229,7 +235,7 @@ int main()
 					// If there's no MD tag but the CIGAR has a D, there's no way
 					// to print this correctly.
 
-					cout << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
+					clog << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
 					<< line[3] << "\t" << line[4] << "\t" << line[5] << "\t"
 					<< line[6] << "\t" << line[7] << "\t" << line[8] << endl
 					<< "D encountered in CIGAR without MD tag" << endl
