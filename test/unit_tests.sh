@@ -118,7 +118,33 @@ echo \
 D encountered in CIGAR without MD tag
 
 " > expected
-$prog <test_D_noMD > observed
+$prog <test_D_noMD 2> observed
+test observed expected
+rm observed expected
+
+
+###########################################################
+#  Test a CIGAR that doesn't begin with an integer
+###########################################################
+echo "    t09..."
+echo \
+"CRATOS:145:D1UH5ACXX:2:1308:6211:53528	153	Zv9_scaffold3453	49562	26	S15M1D65M2I18M	=	49562	0
+shift_cigar failed. Exiting." > expected
+$prog <test_charstartCIGAR 2> observed
+test observed expected
+rm observed expected
+
+
+###########################################################
+#  Test a CIGAR with an unsupported character
+###########################################################
+echo "    t10..."
+echo \
+"MS2007487-600V3:1:1101:06791:15000	163	cecr1a_T1_25_17051437-17051625	1	70	189?	=	1	188
+Currently unsupported CIGAR character encountered
+
+" > expected
+$prog <test_unsupportedCIGAR 2> observed
 test observed expected
 rm observed expected
 
