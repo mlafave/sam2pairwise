@@ -12,7 +12,7 @@ using std::string;
 #include "translate_cigar.hh"
 
 
-int translate_cigar( string& seq, const string& read, const char& letter, const int& seqposition, int& cigarposition, int& nonmatch_flag, int& insert_flag, int& softclip_flag, int& pad_flag )
+int translate_cigar( string& seq, const string& read, const char& letter, const int& seqposition, int& cigarposition, int& nonmatch_flag, int& insert_flag, int& n_flag, int& pad_flag )
 {
 
 	if( letter == 'M' || letter == 'X' || letter == '=')
@@ -64,7 +64,7 @@ int translate_cigar( string& seq, const string& read, const char& letter, const 
 		seq += read.substr(seqposition, 1);
 
 		nonmatch_flag = 1;
-		softclip_flag = 1;
+		n_flag = 1;
 
 		++cigarposition;
 
@@ -83,9 +83,23 @@ int translate_cigar( string& seq, const string& read, const char& letter, const 
 		++cigarposition;
 
 	}
+	else if ( letter == 'N' )
+	{
+		// If the letter is N, print the read as periods and the reference
+		// as N's. Use softclip flag to do so, even though it isn't really
+		// soft clipping.
+
+		seq += '.';
+
+		nonmatch_flag = 1;
+		n_flag = 1;
+
+		++cigarposition;
+
+	}
 	else
 	{
-		// If the letter was N, print that it currently
+		// If the letter was something else, print that it
 		// isn't supported.
 
 		throw 1;

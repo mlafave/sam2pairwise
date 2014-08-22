@@ -14,7 +14,7 @@ using std::string;
 #include "translate_md.hh"
 
 
-istream& translate_md ( istream& mdstream, const string& read, string& reference, const int& subpos, int& mdpos, const int& md_number, char& md_letter, const int& mdintnext_flag, const int& insert_flag, int& nonmatch_flag, const int& softclip_flag, const int& pad_flag )
+istream& translate_md ( istream& mdstream, const string& read, string& reference, const int& subpos, int& mdpos, const int& md_number, char& md_letter, const int& mdintnext_flag, const int& insert_flag, int& nonmatch_flag, const int& n_flag, const int& pad_flag )
 {
 
 		if ( insert_flag )
@@ -25,7 +25,7 @@ istream& translate_md ( istream& mdstream, const string& read, string& reference
 			reference += '-';
 
 		}
-		else if ( softclip_flag )
+		else if ( n_flag )
 		{
 
 			// Else if softclip flag is set, ref gets an N added to it.

@@ -43,6 +43,7 @@ sam2pairwise currently supports the following CIGAR elements for reconstructing 
 * M: Alignment match. The MD tag is used to determine if this is a sequence match or mismatch.
 * I: Insertion to the reference, indicated by '-' on the reference sequence.
 * D: Deletion from the reference, indicated '-' on the read sequence.
+* N: Skipped region from the reference, indicated by '.' on the read and 'N' on the reference sequence.
 * S: Soft clipping. These characters are represented normally on the read sequence, and as 'N's on the reference sequence.
 * H: Hard clipping. These characters are no longer present in the read sequence, so this value is skipped.
 * P: Padding. Represented as an * in both the read and reference sequences.

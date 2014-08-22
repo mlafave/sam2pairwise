@@ -172,7 +172,7 @@ int main()
 
 			int insert_flag = 0;
 			int nonmatch_flag = 0;
-			int softclip_flag = 0;
+			int n_flag = 0;
 			int pad_flag = 0;
 
 			// If the cigar position is less than the current cigar distance number:
@@ -182,14 +182,14 @@ int main()
 
 				try{
 
-					translate_cigar( modseq, read, cigar_letter, subpos, cigarpos, nonmatch_flag, insert_flag, softclip_flag, pad_flag );
+					translate_cigar( modseq, read, cigar_letter, subpos, cigarpos, nonmatch_flag, insert_flag, n_flag, pad_flag );
 
 				} catch (int e){
 
 					clog << line[0] << "\t" << line[1] << "\t" << line[2] << "\t"
 					<< line[3] << "\t" << line[4] << "\t" << line[5] << "\t"
 					<< line[6] << "\t" << line[7] << "\t" << line[8] << endl
-					<< "Currently unsupported CIGAR character encountered" << endl
+					<< "Unsupported CIGAR character encountered" << endl
 					<< endl << endl;
 
 					break;
@@ -207,7 +207,7 @@ int main()
 
 				try {
 
-					translate_md( mdstream,  read, reference, subpos, mdpos, md_number, md_letter, mdintnext_flag, insert_flag, nonmatch_flag, softclip_flag, pad_flag );
+					translate_md( mdstream,  read, reference, subpos, mdpos, md_number, md_letter, mdintnext_flag, insert_flag, nonmatch_flag, n_flag, pad_flag );
 
 				} catch (int e){
 
@@ -230,6 +230,10 @@ int main()
 				else if ( pad_flag )
 				{
 					reference += '*';
+				}
+				else if ( n_flag )
+				{
+					reference += 'N';
 				}
 				else if ( cigar_letter != 'D' )
 				{
@@ -304,7 +308,7 @@ int main()
 			// If the cigar letter was anything except a D, increment the "subpos"
 			// counter that tells you where you are in the read.
 
-			if ( cigar_letter != 'D' && cigar_letter != 'P')
+			if ( cigar_letter != 'D' && cigar_letter != 'P' && cigar_letter != 'N' )
 			{
 				++subpos;
 			}

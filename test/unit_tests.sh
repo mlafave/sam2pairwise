@@ -141,7 +141,7 @@ rm observed expected
 echo "    t10..."
 echo \
 "MS2007487-600V3:1:1101:06791:15000	163	cecr1a_T1_25_17051437-17051625	1	70	189?	=	1	188
-Currently unsupported CIGAR character encountered
+Unsupported CIGAR character encountered
 
 " > expected
 $prog <test_unsupportedCIGAR 2> observed
@@ -159,6 +159,20 @@ AAAAGATAA*G*GGATAAA
    ||||||    ||||  
 N--AGATAA*-*-GATA--" > expected
 $prog <test_SPI > observed
+test observed expected
+rm observed expected
+
+
+###########################################################
+#  Test a CIGAR with N
+###########################################################
+echo "    t12..."
+echo \
+"r004	0	ref	16	30	6M14N1I5M	*	0	0
+ATAGCT..............CTCAGC
+||||||               |||||
+ATAGCTNNNNNNNNNNNNNN-TCAGC" > expected
+$prog <test_N > observed
 test observed expected
 rm observed expected
 
