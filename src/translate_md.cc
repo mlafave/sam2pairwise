@@ -14,7 +14,7 @@ using std::string;
 #include "translate_md.hh"
 
 
-istream& translate_md ( istream& mdstream, const string& read, string& reference, const int& subpos, int& mdpos, const int& md_number, char& md_letter, const int& mdintnext_flag, const int& insert_flag, int& nonmatch_flag, const int& softclip_flag )
+istream& translate_md ( istream& mdstream, const string& read, string& reference, const int& subpos, int& mdpos, const int& md_number, char& md_letter, const int& mdintnext_flag, const int& insert_flag, int& nonmatch_flag, const int& softclip_flag, const int& pad_flag )
 {
 
 		if ( insert_flag )
@@ -32,6 +32,10 @@ istream& translate_md ( istream& mdstream, const string& read, string& reference
 
 			reference += 'N';
 
+		}
+		else if ( pad_flag )
+		{
+			reference += '*';
 		}
 		else if ( !(mdintnext_flag) && mdpos < md_number )
 		{

@@ -149,4 +149,18 @@ test observed expected
 rm observed expected
 
 
+###########################################################
+#  Test a CIGAR with P
+###########################################################
+echo "    t11..."
+echo \
+"r002	0	ref	9	30	1S2I6M1P1I1P1I4M2I	*	0	0
+AAAAGATAA*G*GGATAAA
+   ||||||    ||||  
+N--AGATAA*-*-GATA--" > expected
+$prog <test_SPI > observed
+test observed expected
+rm observed expected
+
+
 exit;

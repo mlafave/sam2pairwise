@@ -44,6 +44,8 @@ sam2pairwise currently supports the following CIGAR elements for reconstructing 
 * I: Insertion to the reference, indicated by '-' on the reference sequence.
 * D: Deletion from the reference, indicated '-' on the read sequence.
 * S: Soft clipping. These characters are represented normally on the read sequence, and as 'N's on the reference sequence.
+* H: Hard clipping. These characters are no longer present in the read sequence, so this value is skipped.
+* P: Padding. Represented as an * in both the read and reference sequences.
 * =: Sequence match. Treated the same as 'M'.
 * X: Sequence mismatch. Treated the same as 'M'.
 

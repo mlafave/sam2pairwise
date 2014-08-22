@@ -12,7 +12,7 @@ using std::string;
 #include "translate_cigar.hh"
 
 
-int translate_cigar( string& seq, const string& read, const char& letter, const int& seqposition, int& cigarposition, int& nonmatch_flag, int& insert_flag, int& softclip_flag )
+int translate_cigar( string& seq, const string& read, const char& letter, const int& seqposition, int& cigarposition, int& nonmatch_flag, int& insert_flag, int& softclip_flag, int& pad_flag )
 {
 
 	if( letter == 'M' || letter == 'X' || letter == '=')
@@ -69,9 +69,23 @@ int translate_cigar( string& seq, const string& read, const char& letter, const 
 		++cigarposition;
 
 	}
+	else if ( letter == 'P' )
+	{
+		// If the letter is P, both the read and reference should be printed as
+		// asterisks. This information isn't represented in the MD tag, so
+		// set a flag here.
+
+		seq += '*';
+
+		nonmatch_flag = 1;
+		pad_flag = 1;
+
+		++cigarposition;
+
+	}
 	else
 	{
-		// If the letter was N or P, print that it currently
+		// If the letter was N, print that it currently
 		// isn't supported.
 
 		throw 1;

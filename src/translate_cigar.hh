@@ -10,7 +10,7 @@
 
 #include <string>
 
-int translate_cigar( std::string&, const std::string&, const char&, const int&, int&, int&, int&, int& );
+int translate_cigar( std::string&, const std::string&, const char&, const int&, int&, int&, int&, int&, int& );
 
 
 #endif /* GAURD_translate_cigar_hh */

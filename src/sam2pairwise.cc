@@ -173,6 +173,7 @@ int main()
 			int insert_flag = 0;
 			int nonmatch_flag = 0;
 			int softclip_flag = 0;
+			int pad_flag = 0;
 
 			// If the cigar position is less than the current cigar distance number:
 
@@ -181,7 +182,7 @@ int main()
 
 				try{
 
-					translate_cigar( modseq, read, cigar_letter, subpos, cigarpos, nonmatch_flag, insert_flag, softclip_flag );
+					translate_cigar( modseq, read, cigar_letter, subpos, cigarpos, nonmatch_flag, insert_flag, softclip_flag, pad_flag );
 
 				} catch (int e){
 
@@ -206,7 +207,7 @@ int main()
 
 				try {
 
-					translate_md( mdstream,  read, reference, subpos, mdpos, md_number, md_letter, mdintnext_flag, insert_flag, nonmatch_flag, softclip_flag );
+					translate_md( mdstream,  read, reference, subpos, mdpos, md_number, md_letter, mdintnext_flag, insert_flag, nonmatch_flag, softclip_flag, pad_flag );
 
 				} catch (int e){
 
@@ -225,6 +226,10 @@ int main()
 				if ( insert_flag )
 				{
 					reference += '-';
+				}
+				else if ( pad_flag )
+				{
+					reference += '*';
 				}
 				else if ( cigar_letter != 'D' )
 				{
@@ -299,7 +304,7 @@ int main()
 			// If the cigar letter was anything except a D, increment the "subpos"
 			// counter that tells you where you are in the read.
 
-			if ( cigar_letter != 'D' )
+			if ( cigar_letter != 'D' && cigar_letter != 'P')
 			{
 				++subpos;
 			}
