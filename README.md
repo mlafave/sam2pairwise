@@ -67,7 +67,7 @@ Would produce an output like this:
      ||||||||||||||| ||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||  | ||||||| |||||| |
     NCCTGAGAACAAGTGATGAAAGAAACTCATTCCTGTCTTTCAATGAGTGCTTATGTGCATTTAGGAGAACTAGGCAGCACAC--TCAGGGCTGCAAGATGGA
 
-In the event that the MD tag is not detected, or if an unsupported character is detected in the CIGAR, the program maintains the four-line periodicity of the output by printing the header output, an error message, and two blank lines.
+In the event that the MD tag is not detected & the CIGAR contains characters that require the MD tag to resolve, or if an unsupported character is detected in the CIGAR, the program maintains the four-line periodicity of the output by printing the header output, an error message, and two blank lines.
 
 
 License
