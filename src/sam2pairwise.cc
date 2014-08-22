@@ -29,12 +29,17 @@ using std::vector;
 
 
 
-int main()
+int main(int argc, char** argv)
 {
+
+	if(argc == 2 && string(argv[1]) == "--version")
+	{
+		clog << "1.0.0" << endl;
+		return 0;
+	}
 
 	string input_string;
 	int pastheader = 0;
-
 
 	while ( getline( cin, input_string ) )
 	{

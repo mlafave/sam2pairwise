@@ -34,6 +34,10 @@ Or from a pipe:
 
     samtools view file.bam | sam2pairwise > file.out
 
+To display the current version and quit, enter:
+
+	sam2pairwise --version
+
 
 Output
 -------
