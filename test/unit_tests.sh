@@ -20,7 +20,7 @@ echo \
 GTTTCAGTGGATTGGCTGGTGAAGAACGTGACCTACAGAGAGAACTGCTATGTTTGCTTCACAGATAAGCAGACCGTGCAGTTCATCTTCTCCTCTGGACCACCAGCATCCAGTTCACACTGCTCCTCATGGACTCTGCTCAGATCCCTCAGGGAAAAAGTTAAAAACACCACTGAACTGGACAACAGG
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 GTTTCAGTGGATTGGCTGGTGAAGAACGTGACCTACAGAGAGAACTGCTATGTTTGCTTCACAGATAAGCAGACCGTGCAGTTCATCTTCTCCTCTGGACCACCAGCATCCAGTTCACACTGCTCCTCATGGACTCTGCTCAGATCCCTCAGGGAAAAAGTTAAAAACACCACTGAACTGGACAACAGG" > expected
-$prog <test_M_noMD > observed
+$prog <test_M_noMD.txt > observed
 test observed expected
 rm observed expected
 
@@ -34,7 +34,7 @@ echo \
 CTCAAGAAAATGCAGGTTTGCATAAAAGTACCTGTGAAGAGATCGGCAATAGGTGGAGTCAGGCTCTCACTGGCCCTCCAGAGCATTTCCATCTCTTTGGTCTTCATCCTGCGGTCCTTGTCCTGGTAGTCCAAGCGGCCA---AAGAAGCCGTCATAGCCCATCTATAAACAAATCAGAGCAGAGCCATCAGCAACTTTAGATATTAAAATACAATTCATGATGCCAGATAACATGCCATGGCTACCTGAGCAAAGATGGAGGCGTGTTCTAAACCAA
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||       
 CTCAAGAAAATGCAGGTTTGCATAAAAGTACCTGTGAAGAGATCGGCAATAGGTGGAGTCAGGCTCTCACTGGCCCTCCAGAGCATTTCCATCTCTTTGGTCTTCATCCTGCGGTCCTTGTCCTGGTAGTCCAAGCGGCCAAAGAAGAAGCCGTCATAGCCCATCTATAAACAAATCAGAGCAGAGCCATCAGCAACTTTAGATATTAAAATACAATTCATGATGCCAGATAACATGCCATGGCTACCTGAGCAAAGATGGAGGCGTGTTCTNNNNNNN" > expected
-$prog <test_DS > observed
+$prog <test_DS.txt > observed
 test observed expected
 rm observed expected
 
@@ -48,7 +48,7 @@ echo \
 AAAGGCTCTTTCAAACCCTGGTAGATGTGATCCTTCAGGACAGGAGCATATGTAATCAGCCCAGACAGAGCAATGAAAATCTTCTCAAACCGCTTCCATATATAGTCCTATATAATAGGATAAGACGTCTCCGGGTCTTCCGTAAAAAGCGTTAGCTTACGCATCAAGCTGAAAGATAATGGCTGAGTTAGTCTACAGTAGTCAACGTTTGGATTTGGTTAATTAAATGAGAGCTATTATGCCAAACTCACTCTTTAACTCACTTGTTGTTTAAAAAAGGTTGTGTGGCAACA
  || ||||||||||||||||||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||| |    | |||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||
 NAAAGCTCTTTCAAACCCTGGTAGATGTGATCCTTCAGGACAGGAGCATATGTGATCAGCCCAGACAGAGCAATGAAAATCTTCTCAAACCGCTTCCATATATAGTCCTGT---GTGGGATAAGACGTCTCCGGGTCTTCCGTAAAAAGCGTTAGATTACGCATCAAGCTGAAAGATAATGGCTGAGTTAGTCTACAGTAGTCAACGTTTGGATTTGGTTAATTAAATGAGAGCTATTATGCAAAACTCACTCTTTAACTCACTTGTTGTTTAAAAAAGGTTGTGTGGCAACA" > expected
-$prog <test_SI > observed
+$prog <test_SI.txt > observed
 test observed expected
 rm observed expected
 
@@ -62,7 +62,7 @@ echo \
 TTCGAAATCTCACGCTCTTTACTGAAGACCCAGNTAGAGCTTATCCTAATCAGGATACTGTGTGGGANAGNTTCGAGCAGGTATTTTTAGTGNCCTATGCCCCACTATGGTCACTTATGCCCCTGTCTTTAAAGACTACCTCTATGAAGGTCTCCGACAGTTTTATGAGGACAACATCACGTATGTGGAAATCAGAGCACTNN
 ||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||| || ||||||||||||||||||||| ||||||        |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||||||| |||||||||||  
 TTCGAAATCTCACGCTCTTTACTGAAGACCCAGATAGAGCTTATCCTAATCAGGATACTGTGTGGGAGAGGTTCGAGCAGGTATTTTTAGTGGCCTATG-----GGTTGGTCACTTATGCCCCTGTCTTTAAAGACTACCTCTATGAAGGTCTCCGACAGTTTTATGAGGACAACATCATGTATGTGGAGATCAGAGCACTGC" > expected
-$prog <test_MD0end > observed
+$prog <test_MD0end.txt > observed
 test observed expected
 rm observed expected
 
@@ -76,7 +76,7 @@ echo \
 CTTATATTGGCCTT
 ||| ||||  ||||
 CTTCTATTATCCTT" > expected
-$prog <test_X= > observed
+$prog <test_X=.txt > observed
 test observed expected
 rm observed expected
 
@@ -90,7 +90,7 @@ echo \
 AAAGTTAAAATTCCCGTCGCTATCAA---------------AACATCTCCGAAAGCCAACAAGGAAATCCTCGATGTGAGTTTCTGCTTTGCTGTGTGGGGGTCCATGGCTCTGAAC
 ||||||||||||||||||||||||||               ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 AAAGTTAAAATTCCCGTCGCTATCAAGGAATTAAGAGAAGCAACATCTCCGAAAGCCAACAAGGAAATCCTCGATGTGAGTTTCTGCTTTGCTGTGTGGGGGTCCATGGCTCTGAAC" > expected
-$prog <test_Hstart > observed
+$prog <test_Hstart.txt > observed
 test observed expected
 rm observed expected
 
@@ -104,7 +104,7 @@ echo \
 CATTATAATTTCTTAAAATATTAATGACTGCAGAACATGGGCTGCTCTACAAATACATATTTTAATTATGGCAAGAATAAAAGCAAAAAAAAGAAAAAGTA
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||||||
 CATTATAATTTCTTAAAATATTAATGACTGCAGAACATGGGCTGCTCTACAAATACATATTTTAATTATGGCAAGAATAAAAGCAAAAAAAA-AAAAAGTA" > expected
-$prog <test_I_noMD > observed
+$prog <test_I_noMD.txt > observed
 test observed expected
 rm observed expected
 
@@ -118,7 +118,7 @@ echo \
 D encountered in CIGAR without MD tag
 
 " > expected
-$prog <test_D_noMD 2> observed
+$prog <test_D_noMD.txt 2> observed
 test observed expected
 rm observed expected
 
@@ -130,7 +130,7 @@ echo "    t09..."
 echo \
 "CRATOS:145:D1UH5ACXX:2:1308:6211:53528	153	Zv9_scaffold3453	49562	26	S15M1D65M2I18M	=	49562	0
 shift_cigar failed. Exiting." > expected
-$prog <test_charstartCIGAR 2> observed
+$prog <test_charstartCIGAR.txt 2> observed
 test observed expected
 rm observed expected
 
@@ -144,7 +144,7 @@ echo \
 Unsupported CIGAR character encountered
 
 " > expected
-$prog <test_unsupportedCIGAR 2> observed
+$prog <test_unsupportedCIGAR.txt 2> observed
 test observed expected
 rm observed expected
 
@@ -158,7 +158,7 @@ echo \
 AAAAGATAA*G*GGATAAA
    ||||||    ||||  
 N--AGATAA*-*-GATA--" > expected
-$prog <test_SPI > observed
+$prog <test_SPI.txt > observed
 test observed expected
 rm observed expected
 
@@ -172,7 +172,7 @@ echo \
 ATAGCT..............CTCAGC
 ||||||               |||||
 ATAGCTNNNNNNNNNNNNNN-TCAGC" > expected
-$prog <test_N > observed
+$prog <test_N.txt > observed
 test observed expected
 rm observed expected
 
